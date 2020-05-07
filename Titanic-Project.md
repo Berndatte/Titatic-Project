@@ -43,7 +43,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------------ tidyverse 1.3.0 --
+## -- Attaching packages ------------------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
@@ -54,7 +54,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ---------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -335,6 +335,8 @@ females of age 63 years, Mrses. are married females.
 
 
 ```r
+combinedData3$Title <- factor(combinedData3$Title, 
+                              levels = c("Mr.", "Miss.", "Mrs.", "Master.", "Major.", "Mlle.", "Ms.", "Mme."))
 ggplot(combinedData3, aes(x = Pclass, fill = Survived)) +
   geom_bar(position = "stack") +
   facet_grid(.~ Title) +

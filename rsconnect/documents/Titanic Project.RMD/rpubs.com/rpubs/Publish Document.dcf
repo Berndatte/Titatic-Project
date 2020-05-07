@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/607078/4c137913c0db4141bfdf9cdac8752d5c
+bundleId: https://api.rpubs.com/api/v1/document/607078/4c137913c0db4141bfdf9cdac8752d5c
+url: http://rpubs.com/berndatte_john/607078
+when: 1588861722.08296

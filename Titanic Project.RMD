@@ -186,6 +186,9 @@ females of age 63 years, Mrses. are married females.
 6. How are Misses.,Mrs.,Mr. and Masters  distributed in classes
 
 ```{R}
+
+combinedData3$Title <- factor(combinedData3$Title, 
+                              levels = c("Mr.", "Miss.", "Mrs.", "Master.", "Major.", "Mlle.", "Ms.", "Mme."))
 ggplot(combinedData3, aes(x = Pclass, fill = Survived)) +
   geom_bar(position = "stack") +
   facet_grid(.~ Title) +
