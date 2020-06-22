@@ -1,19 +1,42 @@
 ---
+title: "EXPLORATORY ANALYSIS OF TITANIC SURVIAL"
+author: "NTHAMBI"
 output: 
   html_document: 
-    keep_md: yes
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    number_section: true
+date: " `r format(Sys.time(), '%d %b %Y') `"
 ---
 
-# EXPLORATORY ANALYSIS OF TITANIC SURVIVAL.
-##### by Berndatte
+<style>
+#header{
+   color: #800000;
+   background-color: #F5F5F5;
+   opacity: 0.6;
+   font-family: Calibri;
+   font-size:20px;
+}
+body{
+  color: #457b9d;
+  background-color: F5F5F5;
+  font-family: Calibri;
+}
+pre{
+  color: #708090;
+  background-color: #F8F8FF;
+}
 
-## SYNOPSIS
+</style>
+
+# SYNOPSIS
 
 RMS Titanic was a British passenger liner operated by the White Star Line.It sank in the North Atlantic Ocean in the early morning hours of 15 April 1912, after striking an iceberg during her maiden voyage from Southampton to New York.This caused 1502 deaths out of 2224 passengers and crew, this was due to lack of enough lifeboats for everyone on board.
 
 We use the data from Kaggle to explore the survival based on the gender, Proxy for Socio-economic status(SES) either Upper, Middle or Lower class, the Age, and Title for example people with title like Mr., Mrs., Miss., Master., Ms. We find that for the gender, males had a very high chance of perishing to females,If you were in 3rd class you had a low chance of surviving than those in Upper class.
 
-## Loading And Processing of The Raw Data.
+# Loading And Processing of The Raw Data.
 
 The data for this project is in form of a comma-separated-value value,the data is split in two:
 
@@ -22,7 +45,7 @@ The data for this project is in form of a comma-separated-value value,the data i
 
 which is found in [Titanic data](https://www.kaggle.com/c/titanic/data).
 
-### Reading In The Data
+## Reading In The Data
 
 ```{r setup}
 knitr::opts_chunk$set(echo = TRUE)
@@ -33,17 +56,17 @@ test <- read.csv("test.csv", header = TRUE)
 train <- read.csv("train.csv", header = TRUE)
 ```
 
-### loading the packages 
+## loading the packages 
 
-```{r}
+```{r, include=FALSE}
 library(stringr)
 library(tidyverse)
 ```
 
 
-### Processing of Data
+## Processing of Data
 
-```{r }
+```{r, collapse=TRUE }
 
 #adding a Survived column in test dataset
 test_surv <- data.frame(Survived = rep("None",nrow(test)),test[,])
@@ -81,11 +104,11 @@ combinedData2 <- combinedData1 %>%
 ```
 
 
-## RESULTS
+# RESULTS
 
 1.Finding whether People in upper class had a high chance of surviving than the ones in lower class.
 
-```{r}
+```{r, fig.width=5, fig.height=3, fig.align='centre'}
 ggplot(combinedData2, aes(Pclass, fill = Survived)) +
   geom_bar() +
  labs(title = "No of people who Survived in each Pclass", y = 'Total')+
@@ -211,7 +234,7 @@ When we look at the Mrses, they were more in middle class.Those who were in firs
 There was only one person with title Ms. who was in second class and unfortunately perished.
 
 
-## Conclusion
+# Conclusion
 It is evident from the exploratory  that men had a very low chance of surviving than females,and if you were in lower class you also had a lower chance of surviving,but if you were in upper class you had a very high chance of surviving.
 
 
